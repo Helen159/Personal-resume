@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport"
+        content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>王海伦-个人简历</title>
+    <link rel="stylesheet" href="./index.css">
+
+    <script language="javascript">
+        function preview(oper) {
+            if (oper < 10) {
+                bdhtml = window.document.body.innerHTML;//获取当前页的html代码
+                sprnstr = "<!--startprint" + oper + "-->";//设置打印开始区域
+                eprnstr = "<!--endprint" + oper + "-->";//设置打印结束区域
+                prnhtml = bdhtml.substring(bdhtml.indexOf(sprnstr) + 18); //从开始代码向后取html
+                prnhtml = prnhtml.substring(0, prnhtml.indexOf(eprnstr));//从结束代码向前取html
+                window.document.body.innerHTML = prnhtml;
+                window.print();
+                window.document.body.innerHTML = bdhtml;
+            }
+            else {
+                window.print();
+            }
+        }
+    </script>
+
+    <style id="styleContent">
+        /*
+    * 面试官你好，我是王海伦，陕西渭南人
+    * 为您精心准备一份不一样的简历来介绍自己
+    * 首先准备一些样式
+    */
+        * {
+            transition: all .8s;
+        }
+
+        /* 稍等，在容器上添加点样式 */
+        #codeEdit {
+            color: #fff;
+            background: #1E1E1E;
+        }
+
+        #resume {
+    </style>
+</head>
+
+<body>
+
+    <pre id="codeEdit" class="language-css" onscroll="toggleScrollBar(event)">
+    <span class="token comment">/*
+    * 面试官你好，我是王海伦，陕西人
+    * 为您精心准备一份不一样的简历来介绍自己
+    * 首先准备一些样式
+    */</span>
+    <span class="token selector">*</span><span class="token punctuation">{</span>
+        <span class="token property">transition</span><span class="token punctuation">:</span> all .8s<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/* 稍等，在容器上添加点样式 */</span>
+    <span class="token selector"> #codeEdit </span><span class="token punctuation">{</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> #1E1E1E<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"> #resume </span><span class="token punctuation">{</span>
+   </pre>
+   
+    <div id="resume" onscroll="toggleScrollBar(event)">
+
+        <div class="connect" style="width: 100%; display: flex;">
+            <div class="line-wrap">
+                <div class="line-left"></div>
+                <div class="line-right">
+                    <p class="line-defColor line-item1"></p>
+                    <p class="line-darkColor line-item2"></p>
+                    <p class="line-defColor line-item3"></p>
+                    <p class="line-midColor line-item4"></p>
+                    <p class="line-darkColor line-item5"></p>
+                    <p class="line-midColor line-item6"></p>
+                    <p class="line-darkColor line-item7"></p>
+                    <p class="line-midColor line-item7"></p>
+                </div>
+            </div>
+            <!--startprint1-->
+
+            <!--打印内容开始-->
+            <div class="connect">
+                <div class="text-wrap">
+                    <h2 class="inten">求职意向：前端开发工程师</h2>
+                    <h4 class="text-title">基本信息</h4>
+                    <div class="base-info">
+                        <div class="">
+                            <div class="">姓名：王海伦</div>
+                            <div class="">年龄：23</div>
+                        </div>
+                        <div class="">
+                            <div class="">毕业院校：天津理工</div>
+                            <div class="">联系电话：17602968654</div>
+                        </div>
+                    </div>
+                    <h4 class="text-title">教育背景</h4>
+                    <div class="school"><span class="mr">学校：天津理工</span><span class="">专业：项目管理</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--打印内容结束-->
+
+    <!--endprint1-->
+    <input type=button name='button_export' value='打印' onclick=preview(1)>
+
+    <script src="./textarr.js"></script>
+    <script src="./write.js"></script>
+
+    <script>
+        let currentIndex_ = 0
+        function writeIntro(intro = '', time, callback) {
+            let connect = document.querySelectorAll('.connect')
+            if (connect.length < 1) {
+                resume.innerHTML = intro
+            } else {
+                connect[connect.length - 1].innerHTML = intro
+            }
+            setTimeout(() => {
+                callback()
+            }, time);
+        }
+        function startResume() {
+            writeIntro(balloon, 700, () => {
+                writeIntro(line, 200, () => {
+                    writeIntro(text, 0, () => {
+                        writeText(textArr[currentIndex_])
+                    })
+                })
+            })
+        }
+
+        let num = 0
+        let t = setInterval(() => {
+            if (num <= style.length) {
+                codeEdit.innerHTML = Prism.highlight(style.substr(0, num), Prism.languages.css);
+                codeEdit.scrollTop = 100000
+                styleContent.innerHTML = style.substr(0, num)
+                num++
+            } else {
+                clearInterval(t)
+            }
+        }, 70)
+        setTimeout(() => {
+            if (document.body.clientWidth < 500) {
+                setTimeout(() => {
+                    resume.style.cssText = 'height:70vh!important'
+                }, 5000);
+            }
+            startResume()
+        }, 10000);
+    </script>
+
+    <script src="./prism.js"></script>
+
+    <script>
+        let sbTimer = null
+        function toggleScrollBar(self) {
+            self = self.target
+            clearTimeout(sbTimer)
+
+            if (self.getAttribute('class') != 'sbShow')
+                self.classList.add('sbShow')
+
+            sbTimer = setTimeout(() => {
+                self.classList.remove('sbShow')
+            }, 800);
+        }
+    </script>
+</body>
+
+</html>
